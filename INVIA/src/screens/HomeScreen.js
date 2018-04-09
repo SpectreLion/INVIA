@@ -1,6 +1,6 @@
 /*
 **
- * RemindMe App
+ * INVIA
  * home Screen
  */
 
@@ -10,6 +10,7 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  ImageBackground,
   View,
   StatusBar
 } from 'react-native';
@@ -17,28 +18,28 @@ import Colors from './../theme/colors';
 
 export default class HomeScreen extends Component<{}> {
 
-  goToTaskScreen(){
+  goToLoginScreen(){
     this.props.navigation.navigate('Login');
   }
 
   render() {
 
     return (
-      <View style={styles.container}>
+      <ImageBackground
+        style={styles.container}
+        source={require('./../images/fondo_home.png')}>
         <StatusBar
           barStyle="light-content"
        />
-        <Image
-          style={styles.remindMeLogo}
-          source={require('./../images/logo_invia.png')}/>
         <TouchableHighlight
-          style={styles.homeButton}
           underlayColor={Colors.touchableHover}
-          onPress={this.goToTaskScreen.bind(this)}>
-          <Text style={styles.homeButtonText}>COMENZAR</Text>
+          onPress={this.goToLoginScreen.bind(this)}>
+          <Image
+            style={styles.remindMeLogo}
+            source={require('./../images/logo_invia.png')}/>
         </TouchableHighlight>
-        <Image source={require('./../images/avatars.png')} />
-      </View>
+        <Text style={styles.homeButtonText}>By Pyxidis</Text>
+      </ImageBackground>
     );
   }
 }
@@ -46,25 +47,15 @@ export default class HomeScreen extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: Colors.primaryColorDarker,
+    alignItems:'center',
+    resizeMode: 'cover'
   },
   remindMeLogo:{
-    marginTop: 80
-  },
-  homeButton: {
-      width: 325,
-      height: 55,
-      paddingTop: 15,
-      borderRadius: 27,
-      borderStyle: 'solid',
-      borderWidth: 2,
-      borderColor: '#ffffff'
+    marginTop: 200
   },
   homeButtonText: {
+    marginTop: 180,
     fontFamily: 'Avenir',
-    textAlign: 'center',
     fontSize: 17,
     color: 'white'
   }
