@@ -42,6 +42,7 @@ export default class LoginScreen extends Component<{}> {
          />
       <TextInput
         style={styles.inputText}
+        secureTextEntry={true}
         placeholder="Contraseña"
         />
         <TouchableHighlight
