@@ -10,6 +10,7 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  ImageBackground,
   View,
   StatusBar,
   ScrollView
@@ -48,6 +49,18 @@ export default class MenuScreen extends Component<{}> {
       <View
         style={styles.container}>
         <ScrollView >
+          <ImageBackground
+            style = {styles.headerContainer}>
+            source={require('./../images/header_welcome.png')}>
+            <View style={styles.headerFunction}>
+              <TouchableHighlight>
+                <Image
+                  style={styles.profileicon}
+                  source={require('./../images/btn_mi_perfil.png')}/>
+              </TouchableHighlight>
+              <Text style={ styles.welcomeText }>BIENVENIDO</Text>
+            </View>
+          </ImageBackground>
             <View style={styles.itemsContainer}>
               {this.renderMenuIcons(this.state.items)}
             </View>
@@ -71,5 +84,30 @@ const styles = StyleSheet.create({
     marginTop:20,
     marginRight:10,
     marginLeft:5
-  }
+  },
+  headerContainer: {
+    width: 400
+  },
+  headerFunction: {
+    flex:1,
+    flexDirection:'row',
+    flexWrap:'wrap'
+  },
+  profileicon: {
+    width:50,
+    height:50,
+    marginRight:10
+  },
+  itemsContainer: {
+    flex:1,
+    flexDirection:'row',
+    flexWrap:'wrap',
+    marginTop:20,
+    marginRight:10,
+    marginLeft:5
+  },
+  welcomeText:{
+    fontSize:18,
+    fontFamily: 'Avenir'
+  },
 });
