@@ -43,6 +43,35 @@ export default class MenuScreen extends Component<{}> {
             });
     }
 
+    goToScreen(id){
+      switch(id) {
+          case 1:
+              this.props.navigation.navigate('Login');
+              break;
+          case 2:
+              this.props.navigation.navigate('Login');
+              break;
+          case 3:
+              this.props.navigation.navigate('Login');
+              break;
+          case 4:
+              this.props.navigation.navigate('Login');
+              break;
+          case 5:
+              this.props.navigation.navigate('Login');
+              break;
+          case 6:
+              this.props.navigation.navigate('Login');
+              break;
+          case 7:
+              this.props.navigation.navigate('Login');
+              break;
+          case 8:
+              this.props.navigation.navigate('Login');
+              break;
+      }
+    }
+
   render() {
 
     return (
@@ -50,7 +79,7 @@ export default class MenuScreen extends Component<{}> {
         style={styles.container}>
         <ScrollView >
           <ImageBackground
-            style = {styles.headerContainer}>
+            style = {styles.headerContainer}
             source={require('./../images/header_welcome.png')}>
             <View style={styles.headerFunction}>
               <TouchableHighlight>
@@ -74,40 +103,39 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  remindMeLogo:{
-    marginTop: 80
-  },
   itemsContainer: {
     flex:1,
     flexDirection:'row',
     flexWrap:'wrap',
-    marginTop:20,
     marginRight:10,
+    marginTop:20,
     marginLeft:5
   },
+  iconText:{
+    fontSize: 10,
+    color:'gray'
+  },
   headerContainer: {
-    width: 400
+    flex:1,
+    height:190
   },
   headerFunction: {
-    flex:1,
     flexDirection:'row',
     flexWrap:'wrap'
   },
   profileicon: {
-    width:50,
-    height:50,
+    width:80,
+    height:80,
+    marginLeft:20,
+    marginTop:50,
     marginRight:10
   },
-  itemsContainer: {
-    flex:1,
-    flexDirection:'row',
-    flexWrap:'wrap',
-    marginTop:20,
-    marginRight:10,
-    marginLeft:5
-  },
+
   welcomeText:{
-    fontSize:18,
-    fontFamily: 'Avenir'
+    fontSize:32,
+    marginLeft:20,
+    marginTop:70,
+    fontFamily: 'Avenir',
+    color: 'white'
   },
 });

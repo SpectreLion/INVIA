@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     width:width/3-15,
-    height:230,
     marginLeft:5,
   },
   icon: {
@@ -54,8 +53,10 @@ const styles = StyleSheet.create({
   categoryText: {
     ...Typografy.avenirFont,
     color: Colors.categoriesText,
-    fontSize: 14,
+    fontSize: 10,
+    color:'gray',
     textAlign:'center',
-    marginTop:10
+    marginTop:10,
+    marginBottom:20
   }
 });
