@@ -39,6 +39,7 @@ export default class MenuScreen extends Component<{}> {
                     key={item.id}
                     id={item.id}
                     title={item.title}
+                    goToScreen=goToScreen(this)
                     image={item.image}/>)
             });
     }
@@ -46,28 +47,28 @@ export default class MenuScreen extends Component<{}> {
     goToScreen(id){
       switch(id) {
           case 1:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('Docs');
               break;
           case 2:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('Admission');
               break;
           case 3:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('Induction');
               break;
           case 4:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('Credential');
               break;
           case 5:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('First');
               break;
           case 6:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('Directory');
               break;
           case 7:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('Schoolar');
               break;
           case 8:
-              this.props.navigation.navigate('Login');
+              this.props.navigation.navigate('Map');
               break;
       }
     }

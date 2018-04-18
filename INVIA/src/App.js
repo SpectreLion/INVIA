@@ -11,6 +11,17 @@ import {
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import MenuScreen from './screens/MenuScreen';
+import AdmissionScreen from './screens/AdmissionScreen';
+import DocumentationScreen from './screens/DocumentationScreen';
+import CredentialScreen from './screens/CredentialScreen';
+import DirectoryScreen from './screens/DirectoryScreen';
+import FirstDayScreen from './screens/FirstDayScreen';
+import InductionScreen from './screens/InductionScreen';
+import LanguageScreen from './screens/LanguageScreen';
+import MapScreen from './screens/MapScreen';
+import PlatformScreen from './screens/PlatformScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import SchoolarshipScreen from './screens/SchoolarshipScreen';
 import * as firebase from 'firebase';
 // Initialize Firebase
   const config = {
@@ -27,7 +38,18 @@ export default App = StackNavigator(
     {
       Home: { screen: HomeScreen },
       Login: { screen: LoginScreen },
-      Menu: { screen: MenuScreen }
+      Menu: { screen: MenuScreen },
+      Admission:{screen: AdmissionScreen},
+      Docs: {screen: DocumentationScreen},
+      Credential: {screen: CredentialScreen},
+      Directory: {screen: DirectoryScreen},
+      First: {screen: FirstDayScreen},
+      Induction: {screen: InductionScreen},
+      Language: {screen: LanguageScreen},
+      Map: {screen: MapScreen},
+      Platform {screen: PlatformScreen},
+      Profile: {screen: ProfileScreen},
+      Schoolar: {screen: SchoolarshipScreen}
     },
     {
       headerMode: 'none'
