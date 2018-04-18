@@ -27,6 +27,7 @@ export default class MenuItems extends Component<{}> {
     const { id,title,image } = this.props;
     return (
         <TouchableHighlight
+            onPress={ ()=> {this.props.goToScreen(id)}}
             underlayColor={Colors.touchableHover}>
           <View style={styles.container}>
             <Image

@@ -47,7 +47,7 @@ export default App = StackNavigator(
       Induction: {screen: InductionScreen},
       Language: {screen: LanguageScreen},
       Map: {screen: MapScreen},
-      Platform {screen: PlatformScreen},
+      Platform: {screen: PlatformScreen},
       Profile: {screen: ProfileScreen},
       Schoolar: {screen: SchoolarshipScreen}
     },

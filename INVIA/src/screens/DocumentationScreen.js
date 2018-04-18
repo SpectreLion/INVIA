@@ -10,14 +10,14 @@ import {
   Text,
   TouchableHighlight,
   Image,
-  ImageBackground,
   View,
+  Dimensions,
   StatusBar,
   ScrollView
 } from 'react-native';
 
-import documentsList from './../components/documentsList';
-
+import DocumentsList from './../components/DocumentsList';
+const screen = Dimensions.get('window');
 export default class DocumentationScreen extends Component<{}> {
   constructor(props){
     super(props);
@@ -28,8 +28,12 @@ export default class DocumentationScreen extends Component<{}> {
                    {id:4, nombre:'Solicitud de inscripción', completed: false},
                    {id:5, nombre:'CURP', completed: false},
                    {id:6, nombre:'Aviso de Privacidad', completed: false},
-                   {id:7, nombre:'Copia identificación oficial', completed: false}];
+                   {id:7, nombre:'Copia identificación oficial', completed: false}]
     }
+  }
+
+  goBackScreen(){
+    this.props.navigation.goBack();
   }
 
   toggleDoc(docId){
@@ -41,30 +45,37 @@ export default class DocumentationScreen extends Component<{}> {
 
   renderDocs(docs){
     return docs.map( doc => {
-      return (<documentsList
+      return (<DocumentsList
                 key={doc.id}
                 id={doc.id}
                 nombre={doc.nombre}
                 completed={doc.completed}
-                toggleDoc={doc.toggleDoc.bind(this)}/>)
+                toggleDoc={this.toggleDoc.bind(this)}/>)
     });
   }
 
   render() {
     return (
-        <ImageBackground
-          style = {styles.header}>
-          source={require('./../images/header_documentation.png')}>
-        </ImageBackground>
-        <View
-          style = {styles.container}>
-          <Text>
-            Entrega los siguientes documentos en Servicios de Educación Superior Arriba de Cafetería.
-          </Text>
+       <View style = {styles.container}>
+
+        <View style = {styles.header}>
+          <Image
+            source={require('./../images/header_documentation.png')}>
+          </Image>
         </View>
-        <ScrollView style={styles.docsContainer}>
-          {this.renderDocs(this.state.documentos)}
-        </ScrollView>
+        <TouchableHighlight
+         onPress={ this.goBackScreen.bind(this) }>
+          <Image style={styles.iconBack} source={require('./../images/back-btn.jpg')}></Image>
+        </TouchableHighlight>
+          <Text style={styles.docsText}>
+            Entrega los siguientes documentos en Servicios de Educación Superior [Arriba de Cafetería].
+          </Text>
+          <View style={styles.docsContainer}>
+          <ScrollView >
+            {this.renderDocs(this.state.documentos)}
+          </ScrollView>
+           </View>
+       </View>
     );
   }
 }
@@ -72,15 +83,26 @@ export default class DocumentationScreen extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: Colors.white
+    alignItems:'center',
+    backgroundColor: 'white'
   },
   header: {
-    width: 400
+    height:100,
+    marginBottom:30
+  },
+  iconBack: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
   },
   docsContainer: {
     flex: 1,
-    width: 300
-    backgroundColor: Colors.blue
+    height: 300,
+    marginTop:20,
+    backgroundColor: '#d9dbdd'
+  },
+  docsText: {
+    fontFamily:'Avenir',
+    fontSize:20
   }
 });

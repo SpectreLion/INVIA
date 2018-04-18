@@ -39,7 +39,7 @@ export default class MenuScreen extends Component<{}> {
                     key={item.id}
                     id={item.id}
                     title={item.title}
-                    goToScreen=goToScreen(this)
+                    goToScreen={this.goToScreen.bind(this)}
                     image={item.image}/>)
             });
     }
@@ -72,6 +72,9 @@ export default class MenuScreen extends Component<{}> {
               break;
       }
     }
+    goToProfile(){
+      this.props.navigation.navigate('Profile');
+    }
 
   render() {
 
@@ -83,13 +86,12 @@ export default class MenuScreen extends Component<{}> {
             style = {styles.headerContainer}
             source={require('./../images/header_welcome.png')}>
             <View style={styles.headerFunction}>
-              <TouchableHighlight>
-                <Image
-                  style={styles.profileicon}
-                  source={require('./../images/btn_mi_perfil.png')}/>
-              </TouchableHighlight>
+                  <Image
+                    onPress={ () => { this.goToProfile(this) }}
+                    style={styles.profileicon}
+                    source={require('./../images/btn_mi_perfil.png')}/>
               <Text style={ styles.welcomeText }>BIENVENIDO</Text>
-            </View>
+              </View>
           </ImageBackground>
             <View style={styles.itemsContainer}>
               {this.renderMenuIcons(this.state.items)}
