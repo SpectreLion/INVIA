@@ -10,77 +10,122 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  ImageBackground,
   View,
   StatusBar,
   ScrollView
 } from 'react-native';
 
-import documentsList from './../components/documentsList';
+//import documentsList from './../components/documentsList';
 
 export default class DirectoryScreen extends Component<{}> {
   constructor(props){
     super(props);
     this.state = {
-      documentos: [{id:1, nombre:'Acta de Nacimiento', completed: false},
-                   {id:2, nombre:'Certificado de Preparatoria', completed: false},
-                   {id:3, nombre:'4 Fotografías infantiles', completed: false},
-                   {id:4, nombre:'Solicitud de inscripción', completed: false},
-                   {id:5, nombre:'CURP', completed: false},
-                   {id:6, nombre:'Aviso de Privacidad', completed: false},
-                   {id:7, nombre:'Copia identificación oficial', completed: false}]
+
     }
   }
 
-  toggleDoc(docId){
-    let documentos = [...this.state.documentos];
-    let currentDoc = documentos.find( doc => doc.id === docId );
-    currentDoc.completed = !currentDoc.completed;
-    this.setState( documentos );
+  goBackScreen(){
+      this.props.navigation.goBack();
+    }
+
+    render() {
+      return (
+         <ScrollView style = {styles.container}>
+            <ImageBackground
+              style = {styles.header}
+              source={require('./../images/header_directory.png')}>
+            </ImageBackground>
+            <View>
+              <TouchableHighlight
+                onPress={ this.goBackScreen.bind(this) }>
+                <Image style={styles.iconBack} source={require('./../images/back-btn.jpg')}></Image>
+              </TouchableHighlight>
+            </View>
+            <View style={styles.videoData}>
+              <Text style={styles.specialText}>Video de Bienvenida Rector</Text>
+            </View>
+            <View style={styles.grayData}>
+              <Text style={styles.docsText}>SERVICIOS ESCOLARES</Text>
+              <Text style={styles.docsText}>3184 0000 EXT. 3654</Text>
+            </View>
+            <View style={styles.dataContainer}>
+              <Text style={styles.docsText}>FINANZAS/TESOSRERÍA</Text>
+              <Text style={styles.docsText}>3184 0000 EXT. 6468</Text>
+            </View>
+            <View style={styles.grayData}>
+             <Text style={styles.docsText}>JEFE DE CARRERA</Text>
+             <Text style={styles.docsText}>Ing. Joel Flores</Text>
+             <Text style={styles.docsText}>3184 0000 EXT. 4018</Text>
+            </View>
+            <View style={styles.dataContainer}>
+              <Text style={styles.docsText}>COORDINADORA DE INGENIERIAS</Text>
+              <Text style={styles.docsText}>Ing. Sandra Contreras</Text>
+              <Text style={styles.docsText}>3184 0000 EXT. 6468</Text>
+            </View>
+            <View style={styles.grayData}>
+             <Text style={styles.docsText}>JEFE DE INGENIERIAS</Text>
+             <Text style={styles.docsText}>María Elena Pacheco</Text>
+             <Text style={styles.docsText}>3184 0000 EXT. 4011</Text>
+            </View>
+         </ScrollView>
+      );
+    }
   }
 
-  renderDocs(docs){
-    return docs.map( doc => {
-      return (<documentsList
-                key={doc.id}
-                id={doc.id}
-                nombre={doc.nombre}
-                completed={doc.completed}
-                toggleDoc={this.toggleDoc.bind(this)}/>)
-    });
-  }
-
-  render() {
-    return (
-       <View>
-        <Image
-          style = {styles.header}>
-          source={require('./../images/header_documentation.png')}>
-        </Image>
-        <View style = {styles.container}>
-          <Text>
-            Entrega los siguientes documentos en Servicios de Educación Superior Arriba de Cafetería.
-          </Text>
-          <ScrollView style={styles.docsContainer}>
-            {this.renderDocs(this.state.documentos)}
-          </ScrollView>
-        </View>
-        </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: 'white'
-  },
-  header: {
-    width: 400
-  },
-  docsContainer: {
-    flex: 1,
-    width: 300,
-    backgroundColor: 'blue'
-  }
-});
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: 'white'
+    },
+    header: {
+      flex:1,
+      height:120,
+      marginBottom:30
+    },
+    iconBack: {
+      width: 20,
+      height: 20,
+      marginTop: 10,
+      marginBottom:10
+    },
+    grayData: {
+      flex: 1,
+      height:90,
+      padding:8,
+      alignItems:'center',
+      backgroundColor: '#d9dbdd'
+    },
+    dataContainer: {
+      flex: 1,
+      height:90,
+      padding:8,
+      alignItems:'center',
+    },
+    mainData: {
+      flex: 1,
+      alignItems:'center',
+      marginTop:20,
+      marginBottom: 20
+    },
+    videoData: {
+      flex: 1,
+      height:150,
+      padding:20,
+      justifyContent:'center',
+      backgroundColor: 'black',
+      alignItems:'center',
+      marginTop:20,
+      marginBottom: 20
+    },
+    docsText: {
+      fontFamily:'Avenir',
+      fontSize:18
+    },
+    specialText: {
+      fontFamily:'Avenir',
+      fontSize:18,
+      color: 'white'
+    }
+  });

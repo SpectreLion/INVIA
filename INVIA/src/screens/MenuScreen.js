@@ -23,13 +23,15 @@ export default class MenuScreen extends Component<{}> {
     super(props);
     this.state={
       items:[{id:1,title:'DOCUMENTACIÓN',image:require('./../images/btn_documentacion.png')},
-                  {id:2,title:'EXAMENES',image:require('./../images/btn_examen.png')},
-                  {id:3,title:'INDUCCIÓN',image:require('./../images/btn_curso_induccion.png')},
-                  {id:4,title:'CREDENCIAL',image:require('./../images/btn_credencial.png')},
-                  {id:5,title:'INICIO DE CLASES',image:require('./../images/btn_inicio_clases.png')},
-                  {id:6,title:'DIRECTORIO',image:require('./../images/btn_directorioo.png')},
-                  {id:7,title:'BECAS Y APOYOS',image:require('./../images/btn_becas_apoyo.png')},
-                  {id:8,title:'MAPA',image:require('./../images/btn_mapa_campus.png')}]
+                  {id:2,title:'EXAMEN DE ADMISIÓN',image:require('./../images/btn_examen.png')},
+                  {id:3,title:'LENGUA EXTRANJERA',image:require('./../images/btn_lengua_ex.png')},
+                  {id:4,title:'CURSO DE INDUCCIÓN',image:require('./../images/btn_curso_induccion.png')},
+                  {id:5,title:'INDUCCION DE PLATAFORMA',image:require('./../images/btn_plataforma.png')},
+                  {id:6,title:'CREDENCIAL',image:require('./../images/btn_credencial.png')},
+                  {id:7,title:'INICIO DE CLASES',image:require('./../images/btn_inicio_clases.png')},
+                  {id:8,title:'DIRECTORIO',image:require('./../images/btn_directorioo.png')},
+                  {id:9,title:'BECAS Y APOYOS',image:require('./../images/btn_becas_apoyo.png')},
+                  {id:10,title:'MAPA',image:require('./../images/btn_mapa_campus.png')}]
       }
     }
 
@@ -53,21 +55,27 @@ export default class MenuScreen extends Component<{}> {
               this.props.navigation.navigate('Admission');
               break;
           case 3:
-              this.props.navigation.navigate('Induction');
+              this.props.navigation.navigate('Language');
               break;
           case 4:
-              this.props.navigation.navigate('Credential');
+              this.props.navigation.navigate('Induction');
               break;
           case 5:
-              this.props.navigation.navigate('First');
+              this.props.navigation.navigate('Platform');
               break;
           case 6:
-              this.props.navigation.navigate('Directory');
+              this.props.navigation.navigate('Credential');
               break;
           case 7:
-              this.props.navigation.navigate('Schoolar');
+              this.props.navigation.navigate('First');
               break;
           case 8:
+              this.props.navigation.navigate('Directory');
+              break;
+          case 9:
+              this.props.navigation.navigate('Schoolar');
+              break;
+          case 10:
               this.props.navigation.navigate('Map');
               break;
       }
@@ -81,17 +89,19 @@ export default class MenuScreen extends Component<{}> {
     return (
       <View
         style={styles.container}>
-        <ScrollView >
+        <ScrollView>
           <ImageBackground
             style = {styles.headerContainer}
             source={require('./../images/header_welcome.png')}>
-            <View style={styles.headerFunction}>
+            <TouchableHighlight
+            onPress={ () => { this.goToProfile(this) }}>
+              <View style={styles.headerFunction}>
                   <Image
-                    onPress={ () => { this.goToProfile(this) }}
                     style={styles.profileicon}
                     source={require('./../images/btn_mi_perfil.png')}/>
-              <Text style={ styles.welcomeText }>BIENVENIDO</Text>
+                  <Text style={ styles.welcomeText }>BIENVENIDO</Text>
               </View>
+            </TouchableHighlight>
           </ImageBackground>
             <View style={styles.itemsContainer}>
               {this.renderMenuIcons(this.state.items)}

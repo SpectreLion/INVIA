@@ -15,7 +15,7 @@ import {
   ScrollView
 } from 'react-native';
 
-import documentsList from './../components/documentsList';
+//import documentsList from './../components/documentsList';
 
 export default class PlatformScreen extends Component<{}> {
   constructor(props){

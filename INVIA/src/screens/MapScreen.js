@@ -15,7 +15,7 @@ import {
   ScrollView
 } from 'react-native';
 
-import documentsList from './../components/documentsList';
+//import documentsList from './../components/documentsList';
 
 export default class MapScreen extends Component<{}> {
   constructor(props){

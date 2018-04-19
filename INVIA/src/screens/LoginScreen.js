@@ -12,6 +12,7 @@ import {
   Image,
   ImageBackground,
   View,
+  ScrollView,
   TextInput,
   StatusBar,
   Platform
@@ -33,6 +34,7 @@ export default class LoginScreen extends Component<{}> {
         <StatusBar
           barStyle="light-content"
        />
+
        <Image
          style={styles.remindMeLogo}
          source={require('./../images/logo_invia.png')}/>
@@ -53,6 +55,7 @@ export default class LoginScreen extends Component<{}> {
         </TouchableHighlight>
         <Text style={styles.loginText1}>¿olvidaste tu contraseña?</Text>
         <Text style={styles.loginText2}>Haz click aquí</Text>
+
       </ImageBackground>
     );
   }

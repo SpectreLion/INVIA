@@ -10,6 +10,7 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  ImageBackground,
   View,
   Dimensions,
   StatusBar,
@@ -33,23 +34,30 @@ export default class DocumentationScreen extends Component<{}> {
   render() {
     return (
        <ScrollView style = {styles.container}>
-        <View style = {styles.header}>
-          <Image
+          <ImageBackground
+            style = {styles.header}
             source={require('./../images/header_mi_perfil.png')}>
-          </Image>
-        </View>
-        <TouchableHighlight
-         onPress={ this.goBackScreen.bind(this) }>
-          <Image style={styles.iconBack} source={require('./../images/back-btn.jpg')}></Image>
-        </TouchableHighlight>
+          </ImageBackground>
           <View>
-          <Image style={styles.iconBack} source={require('./../images/back-btn.jpg')}></Image>
-          <Text style={styles.docsText}>
-            Entrega los siguientes documentos en Servicios de Educación Superior [Arriba de Cafetería].
-          </Text>
+            <TouchableHighlight
+              onPress={ this.goBackScreen.bind(this) }>
+              <Image style={styles.iconBack} source={require('./../images/back-btn.jpg')}></Image>
+            </TouchableHighlight>
           </View>
-          <View style={styles.docsContainer}>
-
+          <View style={styles.mainData}>
+            <Image style={styles.icon} source={require('./../images/btn_mi_perfil.png')}></Image>
+            <Text style={styles.docsText}>Nombre: José Ivan Sanchez</Text>
+            <Text style={styles.docsText}>Matricula: 012171854</Text>
+          </View>
+          <View style={styles.dataContainer}>
+            <Text style={styles.docsText}>Programa: ISTI</Text>
+            <Text style={styles.docsText}>Turno: Matutino</Text>
+            <Text style={styles.docsText}>Domicilio: 5 de marzo #2345</Text>
+            <Text style={styles.docsText}>Municipio: Zapopan</Text>
+            <Text style={styles.docsText}>Estado: Jalisco</Text>
+            <Text style={styles.docsText}>C.P: 47850</Text>
+            <Text style={styles.docsText}>Celular: 33124567856</Text>
+            <Text style={styles.docsText}>Telefono: 36965284</Text>
            </View>
        </ScrollView>
     );
@@ -62,21 +70,34 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   header: {
-    height:100,
+    flex:1,
+    height:120,
     marginBottom:30
   },
   iconBack: {
     width: 20,
     height: 20,
-    marginRight: 10,
+    marginTop: 10,
+    marginBottom:10
   },
-  docsContainer: {
+  icon: {
+    width: 100,
+    height: 100,
+    marginBottom:10
+  },
+  dataContainer: {
     flex: 1,
     marginTop:20,
+    alignItems:'center',
     backgroundColor: '#d9dbdd'
+  },
+  mainData: {
+    flex: 1,
+    alignItems:'center',
+    marginTop:20,
   },
   docsText: {
     fontFamily:'Avenir',
-    fontSize:2
+    fontSize:20
   }
 });
