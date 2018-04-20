@@ -22,7 +22,7 @@ import MapScreen from './screens/MapScreen';
 import PlatformScreen from './screens/PlatformScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import SchoolarshipScreen from './screens/SchoolarshipScreen';
-import * as firebase from 'firebase';
+/*import * as firebase from 'firebase';
 // Initialize Firebase
   const config = {
     apiKey: "AIzaSyDxLo-_q_b4hwJTnil8TaJNCWneFB8KKp0",
@@ -32,7 +32,7 @@ import * as firebase from 'firebase';
     storageBucket: "invia-5b246.appspot.com",
     messagingSenderId: "499747991252"
   };
-  firebase.initializeApp(config);
+  firebase.initializeApp(config);*/
 
 export default App = StackNavigator(
     {
